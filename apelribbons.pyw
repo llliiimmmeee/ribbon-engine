@@ -3,8 +3,9 @@ from PIL import Image as PILImage
 from PIL import ImageFont, ImageTk, ImageOps
 from tkinter import * # type: ignore
 from tkinter import ttk, filedialog
+import os
 
-
+currentDir = os.path.dirname(__file__)
 
 def generateTShirtImage(ribbons: list[PILImage.Image], commendations: list[PILImage.Image], nameText: str, goldenApel: bool) -> PILImage.Image:
     """Creates a t-shirt image from the awards and name provided, in the Apel awards style.
@@ -22,9 +23,9 @@ def generateTShirtImage(ribbons: list[PILImage.Image], commendations: list[PILIm
 
     ribbonGrid = shirtmaker.arrangeRibbons(ribbons, ribbonsPerRow=3, outlineColorRGBA=(0, 0, 0, 255))
     commendationGrid = shirtmaker.arrangeRibbons(commendations, ribbonDimensions=(7, 2), ribbonsPerRow=3, outlineColorRGBA=(0, 0, 0, 255))
-    nametapeTemplate = PILImage.open("apel/nametape.png")
-    anroFont = ImageFont.load("anrofont/anrofont.pil")
-    goldenApelImage = PILImage.open("apel/awards/golden.png")
+    nametapeTemplate = PILImage.open(os.path.join(currentDir, "apel/nametape.png"))
+    anroFont = ImageFont.load(os.path.join(currentDir, "anrofont/anrofont.pil"))
+    goldenApelImage = PILImage.open(os.path.join(currentDir, "apel/awards/golden.png"))
     nametape = shirtmaker.makeNametape(nametapeTemplate, nameText, anroFont)
 
     tShirt = shirtmaker.placeRibbonGrid(tShirt, ribbonGrid, (87, 19))
@@ -44,8 +45,8 @@ current_photo: ImageTk.PhotoImage | None = None
 main_frame: ttk.Frame = ttk.Frame(root, padding=10)
 main_frame.pack(padx=10, pady=10)
 
-ribbons: dict = shirtmaker.getRibbons("apel/ribbons")
-commendations: dict = shirtmaker.getRibbons("apel/commendations")
+ribbons: dict = shirtmaker.getRibbons(os.path.join(currentDir, "apel/ribbons"))
+commendations: dict = shirtmaker.getRibbons(os.path.join(currentDir, "apel/commendations"))
 
 img = shirtmaker.newTShirt()
 current_photo = ImageTk.PhotoImage(img)
