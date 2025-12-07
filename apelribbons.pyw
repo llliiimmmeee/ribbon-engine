@@ -29,10 +29,10 @@ def generateTShirtImage(ribbons: list[PILImage.Image], commendations: list[PILIm
 
     tShirt = shirtmaker.placeRibbonGrid(tShirt, ribbonGrid, (87, 19))
     tShirt = shirtmaker.placeRibbonGrid(tShirt, commendationGrid, (89, 93))
-    tShirt = shirtmaker.placeRibbonGrid(tShirt, nametape, (13, 19))
+    tShirt = shirtmaker.placeRibbonGrid(tShirt, nametape, (10, 19))
 
     if goldenApel:
-        tShirt = shirtmaker.placeRibbonGrid(tShirt, goldenApelImage, (23, 27))
+        tShirt = shirtmaker.placeRibbonGrid(tShirt, goldenApelImage, (20, 27))
 
     return tShirt
 
