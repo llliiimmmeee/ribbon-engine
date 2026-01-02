@@ -31,12 +31,12 @@ def generateTShirtImage(ribbons: list[PILImage.Image], commendations: list[PILIm
     goldenApelImage = PILImage.open(os.path.join(currentDir, "apel/awards/golden.png"))
     nametape = shirtmaker.makeNametape(nametapeTemplate, nameText, anroFont)
 
-    tShirt = shirtmaker.placeRibbonGrid(tShirt, ribbonGrid, (87, 19))
-    tShirt = shirtmaker.placeRibbonGrid(tShirt, commendationGrid, (89, 93))
-    tShirt = shirtmaker.placeRibbonGrid(tShirt, nametape, (10, 19))
+    tShirt = shirtmaker.placeRibbonGrid(tShirt, ribbonGrid, (90, 19))
+    tShirt = shirtmaker.placeRibbonGrid(tShirt, commendationGrid, (92, 73))
+    tShirt = shirtmaker.placeRibbonGrid(tShirt, nametape, (7, 19))
 
     if goldenApel:
-        tShirt = shirtmaker.placeRibbonGrid(tShirt, goldenApelImage, (20, 27))
+        tShirt = shirtmaker.placeRibbonGrid(tShirt, goldenApelImage, (17, 27))
 
     return tShirt
 
