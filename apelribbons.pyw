@@ -28,7 +28,7 @@ def generateTShirtImage(ribbons: list[PILImage.Image], commendations: list[PILIm
     commendationGrid = shirtmaker.arrangeRibbons(commendations, ribbonDimensions=(7, 2), ribbonsPerRow=3, outlineColorRGBA=(0, 0, 0, 255))
     nametapeTemplate = PILImage.open(os.path.join(currentDir, "apel/nametape.png"))
     anroFont = ImageFont.load(os.path.join(currentDir, "anrofont/anrofont.pil"))
-    goldenApelImage = PILImage.open(os.path.join(currentDir, "apel/awards/golden.png"))
+    goldenApelImage = PILImage.open(os.path.join(currentDir, "apel/awards/Golden Apel.png"))
     nametape = shirtmaker.makeNametape(nametapeTemplate, nameText, anroFont)
 
     tShirt = shirtmaker.placeRibbonGrid(tShirt, ribbonGrid, (90, 19))
